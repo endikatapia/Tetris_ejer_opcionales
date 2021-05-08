@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+   <title>Tetris</title>
+    <meta charset="utf-8">
+   <link rel="stylesheet" href="tetris.css">
+   <script src="tetris.js"></script>
+</head>
+<body>
+    <canvas id="canvas" width="300" height="600"></canvas>
+    <input type="button" id="playaudio" value="Play Audio" ></button>
+
+    <label id="sigientepieza"> SIGUIENTE PIEZA:</label>
+    <canvas id="sigpieza" width="300" height="120"></canvas>
+
+
+     <div>
+         <label id="puntuacion" ></label>
+         <label id="nivel" > </label>
+     </div>
+    <label id="pausa" > </label>
+
+
+<script>
+// ===== main ====
+// canvas related variables
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+// canvas_sigpieza related variables
+var canvas_sigpieza = document.getElementById("sigpieza");
+var ctx_sigpieza = canvas_sigpieza.getContext("2d");
+
+
+// clear the canvas
+ctx.fillStyle = 'white';
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+
+// clear the canvas sigpieza
+ctx_sigpieza.fillStyle = 'white';
+ctx_sigpieza.fillRect(0,0,canvas_sigpieza.width,canvas_sigpieza.height);
+
+
+//COLOCAR el label de la siguiente pieza
+var sigpiezalabel = document.getElementById("sigientepieza");
+sigpiezalabel.style.position = 'absolute';
+sigpiezalabel.style.left = "420px";
+sigpiezalabel.style.top = "60px";
+
+//COLOCAR el label de la puntuacion
+var puntuacionlabel = document.getElementById("puntuacion");
+puntuacionlabel.style.position = 'absolute';
+puntuacionlabel.style.left = "430px";
+puntuacionlabel.style.top = "250px";
+
+//COLOCAR el label del nivel
+var nivellabel = document.getElementById("nivel");
+nivellabel.style.position = 'absolute';
+nivellabel.style.left = "465px";
+nivellabel.style.top = "325px";
+
+//COLOCAR el label de pausa
+var pausalabel = document.getElementById("pausa");
+pausalabel.style.position = 'absolute';
+pausalabel.style.left = "475px";
+pausalabel.style.top = "400px";
+pausalabel.style.color = "red";
+
+//colocar el boton para el audio
+var botonaudio = document.getElementById("playaudio");
+botonaudio.style.position = 'absolute';
+botonaudio.style.left = "10px";
+botonaudio.style.top = "620px";
+botonaudio.style.background='#78FF44';
+
+
+var game = new Tetris();
+game.init();
+
+</script>
+</body>
+</html>
